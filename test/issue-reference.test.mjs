@@ -60,15 +60,75 @@ test('rejects zero, leading zeros, non-decimal integers, and unsafe numbers', ()
     '9007199254740992', '9007199254740993', '99999999999999999999', '9'.repeat(400),
   ];
   assertRejected(invalidNumbers.map((number) => `owner/repo#${number}`));
+  assertRejected(invalidNumbers.map((number) => `https://github.com/owner/repo/issues/${number}`));
 });
 
-test('rejects extra paths and full URLs', () => {
+test('rejects extra short-reference paths and non-issue URLs', () => {
   assertRejected([
     '/owner/repo#1', 'owner/repo/extra#1', 'extra/owner/repo#1',
     'owner/repo/#1', 'owner/repo#1/extra',
-    'https://github.com/owner/repo/issues/1', 'https://github.com/owner/repo#1',
+    'https://github.com/owner/repo#1',
     'http://github.com/owner/repo#1', '//github.com/owner/repo#1',
   ]);
+});
+
+test('parses HTTPS GitHub issue URLs with preserved casing and safe boundaries', () => {
+  for (const number of [1, 123, Number.MAX_SAFE_INTEGER]) {
+    assert.deepEqual(parseIssueReference(`https://github.com/Some-Owner/My_Repo.js/issues/${number}`), {
+      owner: 'Some-Owner', repo: 'My_Repo.js', number,
+    });
+  }
+  assert.deepEqual(parseIssueReference('https://github.com/owner/.github/issues/1'), {
+    owner: 'owner', repo: '.github', number: 1,
+  });
+});
+
+test('rejects URL schemes, hosts, credentials, and explicit ports outside the contract', () => {
+  assertRejected([
+    'http://github.com/owner/repo/issues/1',
+    'ftp://github.com/owner/repo/issues/1',
+    '//github.com/owner/repo/issues/1',
+    'https://example.com/owner/repo/issues/1',
+    'https://www.github.com/owner/repo/issues/1',
+    'https://github.com.example.com/owner/repo/issues/1',
+    'https://github.com./owner/repo/issues/1',
+    'https://user@github.com/owner/repo/issues/1',
+    'https://user:password@github.com/owner/repo/issues/1',
+    'https://@github.com/owner/repo/issues/1',
+    'https://github.com:443/owner/repo/issues/1',
+    'https://github.com:8080/owner/repo/issues/1',
+    'https://github.com:/owner/repo/issues/1',
+  ]);
+});
+
+test('rejects URL queries, fragments, and anything but the exact issue path', () => {
+  const base = 'https://github.com';
+  assertRejected([
+    '/owner/repo/issues/1?foo=bar', '/owner/repo/issues/1?',
+    '/owner/repo/issues/1#comment', '/owner/repo/issues/1#',
+    '/owner/repo/issues/1/', '/owner/repo/issues/1/extra',
+    '/owner/repo/pull/1', '/owner/repo/Issues/1',
+    '//repo/issues/1', '/owner//issues/1', '/owner/repo/issues/',
+    '/extra/owner/repo/issues/1', '/owner/repo/extra/../issues/1',
+    '/./repo/issues/1', '/../repo/issues/1', '/owner/./issues/1', '/owner/../issues/1',
+    '/own%65r/repo/issues/1', '/owner/re%70o/issues/1',
+    '/owner/repo/%69ssues/1', '/owner/repo/issues/%31',
+    '/owner/re%2fpo/issues/1', '/owner/%2e%2e/issues/1', '/owner/re%ZZpo/issues/1',
+    '/own?er/repo/issues/1', '/owner/re#po/issues/1',
+    '/owner/re\\po/issues/1', '/owner/re\u0000po/issues/1',
+  ].map((path) => `${base}${path}`));
+});
+
+test('rejects whitespace in and around issue URLs without trimming', () => {
+  for (const whitespace of [' ', '\t', '\r', '\n', '\u00a0', '\u2028', '\ufeff']) {
+    assertRejected([
+      `${whitespace}https://github.com/owner/repo/issues/1`,
+      `https://github.com/owner/repo/issues/1${whitespace}`,
+      `https://github.com/ow${whitespace}ner/repo/issues/1`,
+      `https://github.com/owner/re${whitespace}po/issues/1`,
+      `https://github.com/owner/repo/issues/${whitespace}1`,
+    ]);
+  }
 });
 
 test('rejects dot and dot-dot repository names', () => {
