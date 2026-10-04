@@ -1,0 +1,10 @@
+{
+  "name": "dsh-github-harness-demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Independent target project for reproducible dsh-github-harness demonstrations",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/*.test.mjs" }
+}

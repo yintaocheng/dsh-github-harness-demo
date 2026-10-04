@@ -1,0 +1,5 @@
+.harness/
+.reference/
+*.local.json
+node_modules/
+.npmrc
