@@ -1,0 +1,736 @@
+TAP version 13
+# Subtest: sanitizedDshEnv removes all actual token key casings without changing input
+ok 1 - sanitizedDshEnv removes all actual token key casings without changing input
+  ---
+  duration_ms: 3.7823
+  type: 'test'
+  ...
+# Subtest: sanitizedDshEnv preserves unrelated environments and null-prototype input
+ok 2 - sanitizedDshEnv preserves unrelated environments and null-prototype input
+  ---
+  duration_ms: 0.6819
+  type: 'test'
+  ...
+# Subtest: diagnose observes private read access using only GET, regardless of push permission
+ok 3 - diagnose observes private read access using only GET, regardless of push permission
+  ---
+  duration_ms: 2.0743
+  type: 'test'
+  ...
+# Subtest: private statuses 403 is an explicit failure, never successful capability or empty repository
+ok 4 - private statuses 403 is an explicit failure, never successful capability or empty repository
+  ---
+  duration_ms: 1.0181
+  type: 'test'
+  ...
+# Subtest: public GET success and repository push permission never prove token scopes or writes
+ok 5 - public GET success and repository push permission never prove token scopes or writes
+  ---
+  duration_ms: 0.5829
+  type: 'test'
+  ...
+# Subtest: Issues, Pull requests, and Checks each report actual denied read capability
+    # Subtest: issues
+    ok 1 - issues
+      ---
+      duration_ms: 0.4613
+      type: 'test'
+      ...
+    # Subtest: pulls
+    ok 2 - pulls
+      ---
+      duration_ms: 0.3941
+      type: 'test'
+      ...
+    # Subtest: checks
+    ok 3 - checks
+      ---
+      duration_ms: 0.4383
+      type: 'test'
+      ...
+    1..3
+ok 6 - Issues, Pull requests, and Checks each report actual denied read capability
+  ---
+  duration_ms: 1.8377
+  type: 'test'
+  ...
+# Subtest: identity mismatch stops diagnosis after /user, before repository access
+ok 7 - identity mismatch stops diagnosis after /user, before repository access
+  ---
+  duration_ms: 1.1677
+  type: 'test'
+  ...
+# Subtest: repository mismatch stops diagnosis before any capability probe
+ok 8 - repository mismatch stops diagnosis before any capability probe
+  ---
+  duration_ms: 1.6288
+  type: 'test'
+  ...
+# Subtest: malformed identity responses stop before resource probes instead of implying pre-bootstrap
+    # Subtest: /user null
+    ok 1 - /user null
+      ---
+      duration_ms: 0.5842
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo null
+    ok 2 - /repos/owner/repo null
+      ---
+      duration_ms: 0.2369
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo {}
+    ok 3 - /repos/owner/repo {}
+      ---
+      duration_ms: 0.1582
+      type: 'test'
+      ...
+    1..3
+ok 9 - malformed identity responses stop before resource probes instead of implying pre-bootstrap
+  ---
+  duration_ms: 1.3522
+  type: 'test'
+  ...
+# Subtest: GitHub account and full repository identity follow GitHub case-insensitive names
+ok 10 - GitHub account and full repository identity follow GitHub case-insensitive names
+  ---
+  duration_ms: 0.3988
+  type: 'test'
+  ...
+# Subtest: repository 404 supports pre-bootstrap doctor with all capabilities unverified
+ok 11 - repository 404 supports pre-bootstrap doctor with all capabilities unverified
+  ---
+  duration_ms: 0.3537
+  type: 'test'
+  ...
+# Subtest: repository 403 is failed access, not a pre-bootstrap or empty repository
+ok 12 - repository 403 is failed access, not a pre-bootstrap or empty repository
+  ---
+  duration_ms: 0.3505
+  type: 'test'
+  ...
+# Subtest: empty repository leaves SHA-based reads unverified only after successful empty branch list
+    # Subtest: base HTTP 404
+    ok 1 - base HTTP 404
+      ---
+      duration_ms: 0.4866
+      type: 'test'
+      ...
+    # Subtest: base HTTP 409
+    ok 2 - base HTTP 409
+      ---
+      duration_ms: 0.3415
+      type: 'test'
+      ...
+    1..2
+ok 13 - empty repository leaves SHA-based reads unverified only after successful empty branch list
+  ---
+  duration_ms: 1.2381
+  type: 'test'
+  ...
+# Subtest: base 403 must not fall back to an empty-repository explanation
+ok 14 - base 403 must not fall back to an empty-repository explanation
+  ---
+  duration_ms: 0.7941
+  type: 'test'
+  ...
+# Subtest: denied branch-list fallback cannot be reported as an empty repository
+ok 15 - denied branch-list fallback cannot be reported as an empty repository
+  ---
+  duration_ms: 0.5187
+  type: 'test'
+  ...
+# Subtest: branch-list transport failure does not retain a misleading earlier HTTP status
+ok 16 - branch-list transport failure does not retain a misleading earlier HTTP status
+  ---
+  duration_ms: 0.7657
+  type: 'test'
+  ...
+# Subtest: missing configured base is distinguished from an empty repository
+ok 17 - missing configured base is distinguished from an empty repository
+  ---
+  duration_ms: 0.6287
+  type: 'test'
+  ...
+# Subtest: configured branch names are encoded and only their resolved SHA is probed
+ok 18 - configured branch names are encoded and only their resolved SHA is probed
+  ---
+  duration_ms: 0.395
+  type: 'test'
+  ...
+# Subtest: unexpected base identity or malformed SHA fails without probing commit endpoints
+    # Subtest: redirected branch
+    ok 1 - redirected branch
+      ---
+      duration_ms: 0.4789
+      type: 'test'
+      ...
+    # Subtest: missing SHA
+    ok 2 - missing SHA
+      ---
+      duration_ms: 0.2423
+      type: 'test'
+      ...
+    1..2
+ok 19 - unexpected base identity or malformed SHA fails without probing commit endpoints
+  ---
+  duration_ms: 1.0542
+  type: 'test'
+  ...
+# Subtest: malformed successful status/check responses do not claim read capability
+ok 20 - malformed successful status/check responses do not claim read capability
+  ---
+  duration_ms: 0.4204
+  type: 'test'
+  ...
+# Subtest: transport and JSON parsing errors never echo body, headers, or tokens
+    # Subtest: /user error
+    ok 1 - /user error
+      ---
+      duration_ms: 0.3138
+      type: 'test'
+      ...
+    # Subtest: /user jsonError
+    ok 2 - /user jsonError
+      ---
+      duration_ms: 0.179
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo error
+    ok 3 - /repos/owner/repo error
+      ---
+      duration_ms: 0.1775
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo jsonError
+    ok 4 - /repos/owner/repo jsonError
+      ---
+      duration_ms: 0.1924
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo/commits/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/statuses?per_page=1 error
+    ok 5 - /repos/owner/repo/commits/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/statuses?per_page=1 error
+      ---
+      duration_ms: 0.2875
+      type: 'test'
+      ...
+    # Subtest: /repos/owner/repo/commits/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/statuses?per_page=1 jsonError
+    ok 6 - /repos/owner/repo/commits/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/statuses?per_page=1 jsonError
+      ---
+      duration_ms: 0.2504
+      type: 'test'
+      ...
+    1..6
+ok 21 - transport and JSON parsing errors never echo body, headers, or tokens
+  ---
+  duration_ms: 1.8774
+  type: 'test'
+  ...
+# Subtest: first Issue creates one PR; repeated run reuses it without model or commit
+ok 22 - first Issue creates one PR; repeated run reuses it without model or commit
+  ---
+  duration_ms: 6.2402
+  type: 'test'
+  ...
+# Subtest: new Issue, PR review and CI feedback resume SAME session and PR
+ok 23 - new Issue, PR review and CI feedback resume SAME session and PR
+  ---
+  duration_ms: 5.2776
+  type: 'test'
+  ...
+# Subtest: PR created but response lost: recover publication without another model call or PR
+ok 24 - PR created but response lost: recover publication without another model call or PR
+  ---
+  duration_ms: 1.2066
+  type: 'test'
+  ...
+# Subtest: checkpoint failure can be retried without losing new feedback
+ok 25 - checkpoint failure can be retried without losing new feedback
+  ---
+  duration_ms: 1.3905
+  type: 'test'
+  ...
+# Subtest: failed validation never publishes
+ok 26 - failed validation never publishes
+  ---
+  duration_ms: 0.4962
+  type: 'test'
+  ...
+# Subtest: closed or merged PR is never recreated
+ok 27 - closed or merged PR is never recreated
+  ---
+  duration_ms: 0.5972
+  type: 'test'
+  ...
+# Subtest: lost local state recovers existing session and task from GitHub metadata
+ok 28 - lost local state recovers existing session and task from GitHub metadata
+  ---
+  duration_ms: 0.8282
+  type: 'test'
+  ...
+# Subtest: missing Issue checkpoint is repaired from PR without losing verification
+ok 29 - missing Issue checkpoint is repaired from PR without losing verification
+  ---
+  duration_ms: 0.8405
+  type: 'test'
+  ...
+# Subtest: first no-change turn waits, deduplicates, and resumes on new feedback
+ok 30 - first no-change turn waits, deduplicates, and resumes on new feedback
+  ---
+  duration_ms: 1.4764
+  type: 'test'
+  ...
+# Subtest: waiting session can be recovered from Issue checkpoint without a PR
+ok 31 - waiting session can be recovered from Issue checkpoint without a PR
+  ---
+  duration_ms: 1.3309
+  type: 'test'
+  ...
+# Subtest: existing PR with no further edits retains its reviewable commit
+ok 32 - existing PR with no further edits retains its reviewable commit
+  ---
+  duration_ms: 0.8106
+  type: 'test'
+  ...
+# Subtest: done: acceptance changes revalidate the candidate without a model turn
+ok 33 - done: acceptance changes revalidate the candidate without a model turn
+  ---
+  duration_ms: 0.7081
+  type: 'test'
+  ...
+# Subtest: validated: acceptance changes revalidate the candidate without a model turn
+ok 34 - validated: acceptance changes revalidate the candidate without a model turn
+  ---
+  duration_ms: 0.7791
+  type: 'test'
+  ...
+# Subtest: publishing: acceptance changes revalidate the candidate without a model turn
+ok 35 - publishing: acceptance changes revalidate the candidate without a model turn
+  ---
+  duration_ms: 1.765
+  type: 'test'
+  ...
+# Subtest: new failing acceptance prevents retrying publication with old proof
+ok 36 - new failing acceptance prevents retrying publication with old proof
+  ---
+  duration_ms: 0.9777
+  type: 'test'
+  ...
+# Subtest: hook-modified committed tree must pass a second independent verification
+ok 37 - hook-modified committed tree must pass a second independent verification
+  ---
+  duration_ms: 0.5466
+  type: 'test'
+  ...
+# Subtest: hook-created failing tree is not pushed or published
+ok 38 - hook-created failing tree is not pushed or published
+  ---
+  duration_ms: 0.5202
+  type: 'test'
+  ...
+# Subtest: same HEAD with a changed candidate tree cannot reuse cached validation
+ok 39 - same HEAD with a changed candidate tree cannot reuse cached validation
+  ---
+  duration_ms: 0.6747
+  type: 'test'
+  ...
+# Subtest: legacy validated/no-change checkpoint accepts later feedback instead of deadlocking
+ok 40 - legacy validated/no-change checkpoint accepts later feedback instead of deadlocking
+  ---
+  duration_ms: 1.0854
+  type: 'test'
+  ...
+# Subtest: legacy remote report lacking a validation binding is rechecked without a model turn
+ok 41 - legacy remote report lacking a validation binding is rechecked without a model turn
+  ---
+  duration_ms: 1.6437
+  type: 'test'
+  ...
+# Subtest: verification that changes candidate content cannot certify either tree
+ok 42 - verification that changes candidate content cannot certify either tree
+  ---
+  duration_ms: 0.6132
+  type: 'test'
+  ...
+# Subtest: Git uses API credential in child environment only and disables tracing
+ok 43 - Git uses API credential in child environment only and disables tracing
+  ---
+  duration_ms: 0.8561
+  type: 'test'
+  ...
+# Subtest: own checkpoint ignored, but same identity human feedback retained
+ok 44 - own checkpoint ignored, but same identity human feedback retained
+  ---
+  duration_ms: 0.2901
+  type: 'test'
+  ...
+# Subtest: parse real headless NDJSON contract and reject incomplete turns
+ok 45 - parse real headless NDJSON contract and reject incomplete turns
+  ---
+  duration_ms: 1.3713
+  type: 'test'
+  ...
+# Subtest: strict config and remote URL guards
+ok 46 - strict config and remote URL guards
+  ---
+  duration_ms: 0.4254
+  type: 'test'
+  ...
+# Subtest: API refuses wrong identity before any write
+ok 47 - API refuses wrong identity before any write
+  ---
+  duration_ms: 0.8454
+  type: 'test'
+  ...
+# Subtest: pagination loads beyond first page
+ok 48 - pagination loads beyond first page
+  ---
+  duration_ms: 0.5173
+  type: 'test'
+  ...
+# Subtest: changing executor retains the same business task, PR, branch and session
+ok 49 - changing executor retains the same business task, PR, branch and session
+  ---
+  duration_ms: 1.226
+  type: 'test'
+  ...
+# Subtest: lost cache and executor change recover v1 legacy PR in place
+ok 50 - lost cache and executor change recover v1 legacy PR in place
+  ---
+  duration_ms: 1.2012
+  type: 'test'
+  ...
+# Subtest: lost cache and executor change recover v2 legacy PR in place
+ok 51 - lost cache and executor change recover v2 legacy PR in place
+  ---
+  duration_ms: 0.6773
+  type: 'test'
+  ...
+# Subtest: lost cache and executor change recover v1 legacy waiting checkpoint in place
+ok 52 - lost cache and executor change recover v1 legacy waiting checkpoint in place
+  ---
+  duration_ms: 0.8376
+  type: 'test'
+  ...
+# Subtest: lost cache and executor change recover v2 legacy waiting checkpoint in place
+ok 53 - lost cache and executor change recover v2 legacy waiting checkpoint in place
+  ---
+  duration_ms: 1.3371
+  type: 'test'
+  ...
+# Subtest: receipt-only session recovery also restores durable proof without another model turn
+ok 54 - receipt-only session recovery also restores durable proof without another model turn
+  ---
+  duration_ms: 1.2527
+  type: 'test'
+  ...
+# Subtest: conflicting recovered sessions fail before checkout preparation or model execution
+ok 55 - conflicting recovered sessions fail before checkout preparation or model execution
+  ---
+  duration_ms: 2.3168
+  type: 'test'
+  ...
+# Subtest: ambiguous legacy checkpoints never silently join two executor tasks
+ok 56 - ambiguous legacy checkpoints never silently join two executor tasks
+  ---
+  duration_ms: 0.6368
+  type: 'test'
+  ...
+# Subtest: configuration mutation during an await cannot change this invocation verification or executor
+ok 57 - configuration mutation during an await cannot change this invocation verification or executor
+  ---
+  duration_ms: 0.4396
+  type: 'test'
+  ...
+# Subtest: verified repository ID changes fail before preparing a previously bound task
+ok 58 - verified repository ID changes fail before preparing a previously bound task
+  ---
+  duration_ms: 0.3425
+  type: 'test'
+  ...
+# Subtest: desktop bundle manifest has a separate loadable host entry and no install scripts
+ok 59 - desktop bundle manifest has a separate loadable host entry and no install scripts
+  ---
+  duration_ms: 2.2005
+  type: 'test'
+  ...
+# Subtest: declaring desktop tool is inert; unavailable config/credentials do not break activation
+ok 60 - declaring desktop tool is inert; unavailable config/credentials do not break activation
+  ---
+  duration_ms: 0.2658
+  type: 'test'
+  ...
+# Subtest: desktop adapter rejects read-only/never before any runner or credential lookup
+ok 61 - desktop adapter rejects read-only/never before any runner or credential lookup
+  ---
+  duration_ms: 6.7778
+  type: 'test'
+  ...
+# Subtest: desktop status uses workspace-local config, not plugin cwd, and remains read-only
+ok 62 - desktop status uses workspace-local config, not plugin cwd, and remains read-only
+  ---
+  duration_ms: 9.4735
+  type: 'test'
+  ...
+# Subtest: desktop workdir is relative to session workspace and signal is forwarded
+ok 63 - desktop workdir is relative to session workspace and signal is forwarded
+  ---
+  duration_ms: 4.1697
+  type: 'test'
+  ...
+# Subtest: pre-aborted desktop call never enters runner; disposal aborts an active call
+ok 64 - pre-aborted desktop call never enters runner; disposal aborts an active call
+  ---
+  duration_ms: 8.4034
+  type: 'test'
+  ...
+# Subtest: shared runner releases its lock after an aborted GitHub request
+ok 65 - shared runner releases its lock after an aborted GitHub request
+  ---
+  duration_ms: 15.8653
+  type: 'test'
+  ...
+# Subtest: a failed spawn checkpoint does not leave its child running
+ok 66 - a failed spawn checkpoint does not leave its child running
+  ---
+  duration_ms: 915.7645
+  type: 'test'
+  ...
+# Subtest: cancelling a foreground command terminates its child process tree
+ok 67 - cancelling a foreground command terminates its child process tree
+  ---
+  duration_ms: 808.0033
+  type: 'test'
+  ...
+# Subtest: business identity separates projects and ignores executor, operator and GitHub name casing
+ok 68 - business identity separates projects and ignores executor, operator and GitHub name casing
+  ---
+  duration_ms: 1.8911
+  type: 'test'
+  ...
+# Subtest: run context snapshots project, workdir, Issue, operator, executor and verification deeply
+ok 69 - run context snapshots project, workdir, Issue, operator, executor and verification deeply
+  ---
+  duration_ms: 6.8046
+  type: 'test'
+  ...
+# Subtest: legacy state and DSH receipt migrate in place after executor change
+ok 70 - legacy state and DSH receipt migrate in place after executor change
+  ---
+  duration_ms: 7.8782
+  type: 'test'
+  ...
+# Subtest: receipt-only recovery retains the old session artifact alias
+ok 71 - receipt-only recovery retains the old session artifact alias
+  ---
+  duration_ms: 3.1208
+  type: 'test'
+  ...
+# Subtest: local multiple executor aliases or a canonical plus legacy alias fail closed
+ok 72 - local multiple executor aliases or a canonical plus legacy alias fail closed
+  ---
+  duration_ms: 16.0467
+  type: 'test'
+  ...
+# Subtest: local state versus receipt session conflict and foreign business binding fail closed
+ok 73 - local state versus receipt session conflict and foreign business binding fail closed
+  ---
+  duration_ms: 12.9837
+  type: 'test'
+  ...
+# Subtest: simultaneous project status calls with the same Issue never share state or change cwd
+ok 74 - simultaneous project status calls with the same Issue never share state or change cwd
+  ---
+  duration_ms: 17.2385
+  type: 'test'
+  ...
+# Subtest: status resolves legacy aliases with the new executor and without credentials
+ok 75 - status resolves legacy aliases with the new executor and without credentials
+  ---
+  duration_ms: 9.3958
+  type: 'test'
+  ...
+# Subtest: lost cache and changed executor recover a legacy PR even without its Issue checkpoint
+ok 76 - lost cache and changed executor recover a legacy PR even without its Issue checkpoint
+  ---
+  duration_ms: 3.6776
+  type: 'test'
+  ...
+# Subtest: lost-cache waiting checkpoint recovers the old branch with no PR
+ok 77 - lost-cache waiting checkpoint recovers the old branch with no PR
+  ---
+  duration_ms: 1.3617
+  type: 'test'
+  ...
+# Subtest: different legacy PRs, even sharing a session, are ambiguous rather than merged
+ok 78 - different legacy PRs, even sharing a session, are ambiguous rather than merged
+  ---
+  duration_ms: 0.8622
+  type: 'test'
+  ...
+# Subtest: local versus remote alias disagreement fails closed
+ok 79 - local versus remote alias disagreement fails closed
+  ---
+  duration_ms: 0.5546
+  type: 'test'
+  ...
+# Subtest: legacy checkpoint and PR disagreeing on session fail closed
+ok 80 - legacy checkpoint and PR disagreeing on session fail closed
+  ---
+  duration_ms: 0.5846
+  type: 'test'
+  ...
+# Subtest: duplicate checkpoints or duplicate PRs for one legacy branch fail closed
+ok 81 - duplicate checkpoints or duplicate PRs for one legacy branch fail closed
+  ---
+  duration_ms: 0.9256
+  type: 'test'
+  ...
+# Subtest: unrecorded local or remote legacy branches require manual session recovery
+ok 82 - unrecorded local or remote legacy branches require manual session recovery
+  ---
+  duration_ms: 2.0173
+  type: 'test'
+  ...
+# Subtest: missing PR or changed operator is not turned into a fresh business task
+ok 83 - missing PR or changed operator is not turned into a fresh business task
+  ---
+  duration_ms: 0.9274
+  type: 'test'
+  ...
+# Subtest: closed legacy PRs and branch/base bindings remain visible after executor change
+ok 84 - closed legacy PRs and branch/base bindings remain visible after executor change
+  ---
+  duration_ms: 1.4953
+  type: 'test'
+  ...
+# Subtest: another repository with Issue 1 cannot supply this project checkpoint or fork PR
+ok 85 - another repository with Issue 1 cannot supply this project checkpoint or fork PR
+  ---
+  duration_ms: 0.9998
+  type: 'test'
+  ...
+# Subtest: GitHub adapter snapshots config and pins a verified repository ID within a run
+ok 86 - GitHub adapter snapshots config and pins a verified repository ID within a run
+  ---
+  duration_ms: 0.9348
+  type: 'test'
+  ...
+# Subtest: a valid legacy executor ending in .session is not mistaken for a receipt
+ok 87 - a valid legacy executor ending in .session is not mistaken for a receipt
+  ---
+  duration_ms: 7.338
+  type: 'test'
+  ...
+# Subtest: missing durable session identity and conflicting repository IDs fail closed
+ok 88 - missing durable session identity and conflicting repository IDs fail closed
+  ---
+  duration_ms: 5.8194
+  type: 'test'
+  ...
+# Subtest: waiting checkpoint operator changes or untrusted checkpoint authors require reconciliation
+ok 89 - waiting checkpoint operator changes or untrusted checkpoint authors require reconciliation
+  ---
+  duration_ms: 1.0239
+  type: 'test'
+  ...
+# Subtest: parallel project calls keep config and credential selection stable while awaiting getToken
+ok 90 - parallel project calls keep config and credential selection stable while awaiting getToken
+  ---
+  duration_ms: 192.6789
+  type: 'test'
+  ...
+# Subtest: Windows launcher selects config and propagates failure without credentials
+    # Subtest: external target uses its own config instead of the installed plugin config
+    ok 1 - external target uses its own config instead of the installed plugin config
+      ---
+      duration_ms: 429.5413
+      type: 'test'
+      ...
+    1..1
+ok 91 - Windows launcher selects config and propagates failure without credentials
+  ---
+  duration_ms: 1163.3199
+  type: 'test'
+  ...
+# Subtest: unchanged >2 MiB baseline file does not block a small task; changed large file does
+ok 92 - unchanged >2 MiB baseline file does not block a small task; changed large file does
+  ---
+  duration_ms: 1968.9537
+  type: 'test'
+  ...
+# Subtest: new credentials and tracked runtime files remain blocked within candidate scope
+ok 93 - new credentials and tracked runtime files remain blocked within candidate scope
+  ---
+  duration_ms: 1698.2313
+  type: 'test'
+  ...
+# Subtest: real pre-commit hook changes committed tree: failing new content is never published
+ok 94 - real pre-commit hook changes committed tree: failing new content is never published
+  ---
+  duration_ms: 4645.5269
+  type: 'test'
+  ...
+# Subtest: real hook with passing new content is revalidated and bound to actual HEAD tree
+ok 95 - real hook with passing new content is revalidated and bound to actual HEAD tree
+  ---
+  duration_ms: 4995.906
+  type: 'test'
+  ...
+# Subtest: commit recovery rejects an unexpected parent, even when the tree matches
+ok 96 - commit recovery rejects an unexpected parent, even when the tree matches
+  ---
+  duration_ms: 1755.6035
+  type: 'test'
+  ...
+# Subtest: real no-change task waits twice, then executes new feedback and publishes once
+ok 97 - real no-change task waits twice, then executes new feedback and publishes once
+  ---
+  duration_ms: 7027.2587
+  type: 'test'
+  ...
+# Subtest: real unchanged published HEAD executes added acceptance instead of returning unchanged
+ok 98 - real unchanged published HEAD executes added acceptance instead of returning unchanged
+  ---
+  duration_ms: 5987.8376
+  type: 'test'
+  ...
+# Subtest: Windows atomic checkpoint retries transient EPERM without changing paths
+ok 99 - Windows atomic checkpoint retries transient EPERM without changing paths
+  ---
+  duration_ms: 2.1391
+  type: 'test'
+  ...
+# Subtest: Windows atomic checkpoint retries transient EACCES without changing paths
+ok 100 - Windows atomic checkpoint retries transient EACCES without changing paths
+  ---
+  duration_ms: 0.2317
+  type: 'test'
+  ...
+# Subtest: Windows atomic checkpoint retries transient EBUSY without changing paths
+ok 101 - Windows atomic checkpoint retries transient EBUSY without changing paths
+  ---
+  duration_ms: 0.129
+  type: 'test'
+  ...
+# Subtest: persistent Windows replacement denial stops after bounded retries
+ok 102 - persistent Windows replacement denial stops after bounded retries
+  ---
+  duration_ms: 0.7849
+  type: 'test'
+  ...
+# Subtest: other failures and non-Windows denials are not retried
+ok 103 - other failures and non-Windows denials are not retried
+  ---
+  duration_ms: 0.4362
+  type: 'test'
+  ...
+1..103
+# tests 120
+# suites 0
+# pass 120
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28374.267

@@ -1,0 +1,247 @@
+{
+  "recordedAt": "2026-10-04T13:39:39.407Z",
+  "operator": "yintaocheng",
+  "plugin": {
+    "version": "0.3.0",
+    "head": "53b3603efebe7c25d763dd49f34f0dc339dea993",
+    "tag": "v0.3.0",
+    "verification": [
+      {
+        "command": [
+          "node",
+          "--test",
+          "test/*.test.mjs"
+        ],
+        "exit": 0,
+        "tests": 120,
+        "pass": 120,
+        "fail": 0,
+        "skipped": 0
+      }
+    ],
+    "ci": [
+      {
+        "id": 37205261873,
+        "url": "https://github.com/yintaocheng/dsh-github-harness/actions/runs/37205261873",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "53b3603efebe7c25d763dd49f34f0dc339dea993"
+      }
+    ]
+  },
+  "initial": {
+    "status": "published",
+    "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/2",
+    "head": "006bdd0fd698603fb86570848385071c9d64389e",
+    "sessionId": "session-c35ef884-fa89-4ab0-8ec5-6c910bd7b41c",
+    "version": "0.2.0",
+    "verification": {
+      "tests": 9,
+      "pass": 9,
+      "fail": 0,
+      "skipped": 0
+    },
+    "ci": [
+      {
+        "id": 37203665401,
+        "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37203665401",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "006bdd0fd698603fb86570848385071c9d64389e"
+      },
+      {
+        "id": 37203662541,
+        "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37203662541",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head": "006bdd0fd698603fb86570848385071c9d64389e"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "pluginVersion": "0.2.0",
+      "action": "run",
+      "issue": 1,
+      "started": "2026-10-04T12:50:37.530Z",
+      "finished": "2026-10-04T12:53:17.992Z",
+      "result": {
+        "status": "published",
+        "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/2",
+        "head": "006bdd0fd698603fb86570848385071c9d64389e",
+        "sessionId": "session-c35ef884-fa89-4ab0-8ec5-6c910bd7b41c"
+      }
+    },
+    {
+      "pluginVersion": "0.3.0",
+      "action": "run",
+      "issue": 1,
+      "started": "2026-10-04T13:24:38.966Z",
+      "finished": "2026-10-04T13:27:55.588Z",
+      "result": {
+        "status": "published",
+        "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/2",
+        "head": "e3fd624339d706690c376d4a674504f7b23802cd",
+        "sessionId": "session-c35ef884-fa89-4ab0-8ec5-6c910bd7b41c"
+      }
+    },
+    {
+      "pluginVersion": "0.3.0",
+      "action": "run",
+      "issue": 3,
+      "started": "2026-10-04T13:30:28.555Z",
+      "finished": "2026-10-04T13:32:45.383Z",
+      "result": {
+        "status": "published",
+        "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/4",
+        "head": "4882a95eebcee6c143395882d7bfe47eb36c9c4c",
+        "sessionId": "session-f0e2a7e6-33b4-4099-a3aa-d38d3ae0bf3e"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "issue": 1,
+      "issueUrl": "https://github.com/yintaocheng/dsh-github-harness-demo/issues/1",
+      "taskKey": "task-902cf818d94f63aa7dba720f7b85ed6a5e3855cbaee4eb4e99d46e80d6c3385e",
+      "artifactAlias": "yintaocheng_dsh-github-harness-demo_1_solo",
+      "branch": "harness/solo/issue-1",
+      "sessionId": "session-c35ef884-fa89-4ab0-8ec5-6c910bd7b41c",
+      "executor": "executor-b",
+      "head": "e3fd624339d706690c376d4a674504f7b23802cd",
+      "tree": "0fd60ae7244da8e7730e88387beb23be5d7b2f8d",
+      "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/2",
+      "prNumber": 2,
+      "prState": "open",
+      "merged": false,
+      "files": [
+        "src/issue-reference.mjs",
+        "test/issue-reference.test.mjs"
+      ],
+      "checkpoint": "https://github.com/yintaocheng/dsh-github-harness-demo/issues/1#issuecomment-5980136531",
+      "verification": [
+        {
+          "command": [
+            "node",
+            "--test",
+            "test/*.test.mjs"
+          ],
+          "exit": 0,
+          "tests": 13,
+          "pass": 13,
+          "fail": 0,
+          "skipped": 0
+        }
+      ],
+      "agentReportedDefaultTestBlocked": true,
+      "ci": [
+        {
+          "id": 37205707299,
+          "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37205707299",
+          "event": "pull_request",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3fd624339d706690c376d4a674504f7b23802cd"
+        },
+        {
+          "id": 37205703995,
+          "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37205703995",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3fd624339d706690c376d4a674504f7b23802cd"
+        }
+      ]
+    },
+    {
+      "issue": 3,
+      "issueUrl": "https://github.com/yintaocheng/dsh-github-harness-demo/issues/3",
+      "taskKey": "task-bb236bdcd923e18afbb6176b5525ddf8665c6407e15b07bdad9a4c23d0b8ac07",
+      "artifactAlias": "task-bb236bdcd923e18afbb6176b5525ddf8665c6407e15b07bdad9a4c23d0b8ac07",
+      "branch": "harness/issue-3",
+      "sessionId": "session-f0e2a7e6-33b4-4099-a3aa-d38d3ae0bf3e",
+      "executor": "executor-b",
+      "head": "4882a95eebcee6c143395882d7bfe47eb36c9c4c",
+      "tree": "72c7789f022dc62b97a46d8f8a9bcd9ff9535184",
+      "pr": "https://github.com/yintaocheng/dsh-github-harness-demo/pull/4",
+      "prNumber": 4,
+      "prState": "open",
+      "merged": false,
+      "files": [
+        "src/check-summary.mjs",
+        "test/check-summary.test.mjs"
+      ],
+      "checkpoint": "https://github.com/yintaocheng/dsh-github-harness-demo/issues/3#issuecomment-5980521563",
+      "verification": [
+        {
+          "command": [
+            "node",
+            "--test",
+            "test/*.test.mjs"
+          ],
+          "exit": 0,
+          "tests": 11,
+          "pass": 11,
+          "fail": 0,
+          "skipped": 0
+        }
+      ],
+      "agentReportedDefaultTestBlocked": true,
+      "ci": [
+        {
+          "id": 37206002969,
+          "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37206002969",
+          "event": "pull_request",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "4882a95eebcee6c143395882d7bfe47eb36c9c4c"
+        },
+        {
+          "id": 37205998525,
+          "url": "https://github.com/yintaocheng/dsh-github-harness-demo/actions/runs/37205998525",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "4882a95eebcee6c143395882d7bfe47eb36c9c4c"
+        }
+      ]
+    }
+  ],
+  "host": {
+    "ok": true,
+    "installedVersion": "0.3.0",
+    "license": "MIT",
+    "registered": true,
+    "projectIsolation": true,
+    "cwdUnchanged": true,
+    "tasks": [
+      {
+        "repository": "github:yintaocheng/dsh-github-harness",
+        "issue": 1,
+        "key": "task-c9085c894eccca73e92c8870f6a4eb66285b15f68d557eb50350692d8ff62f59",
+        "artifact": "yintaocheng_dsh-github-harness_1_solo",
+        "sessionId": "session-3847cc24-ee0e-4471-89f0-5d33972d49e8",
+        "phase": "done"
+      },
+      {
+        "repository": "github:yintaocheng/dsh-github-harness-demo",
+        "issue": 1,
+        "key": "task-902cf818d94f63aa7dba720f7b85ed6a5e3855cbaee4eb4e99d46e80d6c3385e",
+        "artifact": "yintaocheng_dsh-github-harness-demo_1_solo",
+        "sessionId": "session-c35ef884-fa89-4ab0-8ec5-6c910bd7b41c",
+        "phase": "done"
+      }
+    ],
+    "doctor": {
+      "operator": "yintaocheng",
+      "reads": "ok",
+      "writes": "unverified",
+      "dshHelpExit": 0
+    },
+    "mode": "danger-full-access"
+  },
+  "npm": "deferred-by-maintainer"
+}

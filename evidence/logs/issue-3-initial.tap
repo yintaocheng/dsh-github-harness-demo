@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: summarizes all passing checks
+ok 1 - summarizes all passing checks
+  ---
+  duration_ms: 3.4129
+  type: 'test'
+  ...
+# Subtest: summarizes mixed passing and failing checks
+ok 2 - summarizes mixed passing and failing checks
+  ---
+  duration_ms: 0.1457
+  type: 'test'
+  ...
+# Subtest: summarizes all failing checks
+ok 3 - summarizes all failing checks
+  ---
+  duration_ms: 0.1069
+  type: 'test'
+  ...
+# Subtest: summarizes an empty array
+ok 4 - summarizes an empty array
+  ---
+  duration_ms: 0.0842
+  type: 'test'
+  ...
+# Subtest: rejects non-array inputs
+ok 5 - rejects non-array inputs
+  ---
+  duration_ms: 0.5
+  type: 'test'
+  ...
+# Subtest: rejects invalid members, including holes in sparse arrays
+ok 6 - rejects invalid members, including holes in sparse arrays
+  ---
+  duration_ms: 0.271
+  type: 'test'
+  ...
+# Subtest: rejects missing, blank, and non-string names
+ok 7 - rejects missing, blank, and non-string names
+  ---
+  duration_ms: 0.1734
+  type: 'test'
+  ...
+# Subtest: rejects missing and non-integer codes
+ok 8 - rejects missing and non-integer codes
+  ---
+  duration_ms: 0.1757
+  type: 'test'
+  ...
+# Subtest: does not modify the input array or its members
+ok 9 - does not modify the input array or its members
+  ---
+  duration_ms: 0.3564
+  type: 'test'
+  ...
+# Subtest: does not modify input when a later member is invalid
+ok 10 - does not modify input when a later member is invalid
+  ---
+  duration_ms: 0.4138
+  type: 'test'
+  ...
+# Subtest: demo is an independent target project
+ok 11 - demo is an independent target project
+  ---
+  duration_ms: 1.154
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 159.4895
