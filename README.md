@@ -2,6 +2,12 @@
 
 这是 [dsh-github-harness 插件](https://github.com/yintaocheng/dsh-github-harness)的独立**目标项目**，不是插件源码或另一个安装包。任务、代码变更和具体执行证据放在这里；安装与通用配置请看[插件主仓库](https://github.com/yintaocheng/dsh-github-harness#readme)。
 
+## 最新证据：2026-10-22 · v0.3.1
+
+[Issue #5](https://github.com/yintaocheng/dsh-github-harness-demo/issues/5) → [PR #6](https://github.com/yintaocheng/dsh-github-harness-demo/pull/6)：首轮与反馈复用同一 root session；最新独立验收为 **5 个仓库测试通过，另有 2 个冻结的外部验收程序各自退出 0**，两个 PR checks 均成功。计数不与插件本地的 195 个测试、下方历史阶段或 `main` 的 1 个基线测试相加。PR #2 / #4 未改动，三个任务 PR 均未合并。
+
+[完整证据](evidence/single-agent-v0.3.1.md) · [机器可读记录](evidence/2026-10-22.json)：包含 12 项 Host 矩阵、真实模型会话连续性、源码提交与已推送标签，以及候选 tarball 资格验证；**不代表 npm 发布**；npm 版本是否可用以官方 registry 为准。
+
 ## 2026-10-04 的具体演示
 
 所有任务都由独立 DSH headless 会话实际执行，随后由可信 harness **另外运行** `node --test test/*.test.mjs`，成功后才发布。下列数字来自对应提交的独立验收，不是模型口述：
