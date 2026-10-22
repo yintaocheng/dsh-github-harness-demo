@@ -1,7 +1,13 @@
 /** Clamp finite primitive numbers to the inclusive interval [min, max]. */
 export function clampNumber(value, min, max) {
-  if (!Number.isFinite(value) || !Number.isFinite(min) || !Number.isFinite(max)) {
-    throw new TypeError('value, min, and max must be finite primitive numbers');
+  if (!Number.isFinite(value)) {
+    throw new TypeError('value must be a finite primitive number');
+  }
+  if (!Number.isFinite(min)) {
+    throw new TypeError('min must be a finite primitive number');
+  }
+  if (!Number.isFinite(max)) {
+    throw new TypeError('max must be a finite primitive number');
   }
   if (min > max) {
     throw new RangeError('min must not exceed max');
