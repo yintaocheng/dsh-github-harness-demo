@@ -6,7 +6,7 @@
 
 [Issue #5](https://github.com/yintaocheng/dsh-github-harness-demo/issues/5) → [PR #6](https://github.com/yintaocheng/dsh-github-harness-demo/pull/6)：首轮与反馈复用同一 root session；最新独立验收为 **5 个仓库测试通过，另有 2 个冻结的外部验收程序各自退出 0**，两个 PR checks 均成功。计数不与插件本地的 195 个测试、下方历史阶段或 `main` 的 1 个基线测试相加。PR #2 / #4 未改动，三个任务 PR 均未合并。
 
-[完整证据](evidence/single-agent-v0.3.1.md) · [机器可读记录](evidence/2026-10-22.json)：包含 12 项 Host 矩阵、真实模型会话连续性、源码提交与已推送标签，以及候选 tarball 资格验证；**不代表 npm 发布**；npm 版本是否可用以官方 registry 为准。
+[完整证据](evidence/single-agent-v0.3.1.md) · [机器可读记录](evidence/2026-10-22.json)：包含 12 项 Host 矩阵、真实模型会话连续性和源码标签。[npm 0.3.1](https://www.npmjs.com/package/dsh-github-harness/v/0.3.1) 已发布，并单独通过 registry 元数据、重新下载完整性、干净 CLI 安装和真实 Host native/PTC 验证。
 
 ## 2026-10-04 的具体演示
 

@@ -77,7 +77,7 @@ PR 记录的两个 `test` checks 均为 `completed / success`：
 | 插件本地测试 | **195 passed**，仅插件测试口径 |
 | 候选 tarball 内容审计 | **30 files**；排除全部 collaboration / App 模块和本地 artifacts |
 
-以下摘要只标识**已通过资格验证的 tarball（tarball qualification）**，不代表 npm registry 上已存在对应发布：
+以下为**已通过资格验证的 tarball** 原始摘要；npm 下载校验使用同一个完整性值，结果见下一节：
 
 ```text
 package: dsh-github-harness@0.3.1
@@ -85,7 +85,16 @@ integrity: sha512-uSAVW0JEAGVW1ImGINccPF5BA975cs+2ch+xwS5Cpp7OAYUkB4w8iCddAnsfP5
 sha256: 25edb004589126a633fdef1fdd70637a995ee4ef286dc15ae140f01d208730a3
 ```
 
-**本文不将候选包验收等同于 npm 发布。** npm 版本是否可用需查询官方 registry 并核对下载完整性；源码推送、标签、CI 成功与 tarball 资格验证是不同的证据。
+## npm 发布后的独立验收
+
+[npm 0.3.1](https://www.npmjs.com/package/dsh-github-harness/v/0.3.1) 已正式发布。2026-10-22 的独立检查确认：
+
+- 官方 registry 中版本及 `latest` 均为 `0.3.1`，维护者为 `yintaocheng`，integrity 与上述原验收包一致。
+- 从[公开 registry 重新下载 tarball](https://registry.npmjs.org/dsh-github-harness/-/dsh-github-harness-0.3.1.tgz)，SHA-512 再次匹配；不是只检查上传命令的退出码。
+- 在干净前缀从 npm 安装，逐文件核对运行源码，并成功执行真正生成的 CLI 命令入口。
+- 在另一个全新隔离 profile 中，经官方插件管理器从 npm 安装 `dsh-github-harness@0.3.1`；桌面 DSH `0.2.1-rc.2` 的 native/PTC 调度、规范输出、项目隔离、进程 cwd 不变，以及 native 卸载取消均通过。
+
+这些是公开 npm 来源的额外检查，与先前候选包 12 项矩阵、GitHub 来源安装及具体任务测试分开记录。已发布归档未被重新打包、覆盖或混入多 agent 实现。
 
 ## 计数、历史与公开边界
 

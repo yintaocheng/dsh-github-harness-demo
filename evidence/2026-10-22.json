@@ -9,7 +9,7 @@
     "hostMatrixCheckedAt": "2026-10-22T12:32:18.539Z",
     "packageAuditCheckedAt": "2026-10-22T13:09:55.047Z",
     "remoteEvidenceCheckedAt": "2026-10-22T13:09:56.262Z",
-    "verificationRerunDuringDocumentation": false
+    "npmVerificationCheckedAt": "2026-10-22T15:07:21.272Z"
   },
   "plugin": {
     "version": "0.3.1",
@@ -49,9 +49,28 @@
       ]
     },
     "npmPublication": {
-      "scope": "Registry availability and downloaded package integrity require separate verification.",
-      "publicationClaim": "not asserted by this evidence",
-      "permanentUnavailabilityClaim": "not asserted by this evidence"
+      "verifiedAt": "2026-10-22T15:07:21.272Z",
+      "published": true,
+      "version": "0.3.1",
+      "latestTag": "0.3.1",
+      "maintainer": "yintaocheng",
+      "registry": "https://registry.npmjs.org",
+      "url": "https://www.npmjs.com/package/dsh-github-harness/v/0.3.1",
+      "tarball": "https://registry.npmjs.org/dsh-github-harness/-/dsh-github-harness-0.3.1.tgz",
+      "integrityMatchesQualifiedArchive": true,
+      "downloadIntegrityMatched": true,
+      "cleanCliInstallPassed": true,
+      "realInstalledCliShimPassed": true,
+      "installedRuntimeFilesMatched": true,
+      "freshNpmHostInstallation": {
+        "checkedAt": "2026-10-22T15:02:02.165Z",
+        "runtimeVersion": "0.2.1-rc.2",
+        "nativeAndPtcPassed": true,
+        "projectIsolationAndCanonicalOutputPassed": true,
+        "cwdUnchanged": true,
+        "nativeDisposalCancellationPassed": true,
+        "sourceFilesMatchIgnoringLineEndings": true
+      }
     }
   },
   "publicGithubInstallation": {
